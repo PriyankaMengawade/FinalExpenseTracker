@@ -1,81 +1,108 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            background-image: url('your-background-image.jpg'); /* Set your background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
         }
         h1 {
-            color: #333;
             text-align: center;
+            color: #fff;
+            font-size: 36px;
+
+        }
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        button {
-            width: 100%;
+        label {
+            font-size: 16px;
+            color: #fff;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
             padding: 10px;
-            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
+            font-size: 14px;
+            color: #333;
         }
         button {
-            background-color: #5cb85c;
+            background-color: #f1c40f; /* Updated to match registration/login style */
             color: white;
+            padding: 12px 15px;
             border: none;
+            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #4cae4c;
+            background-color: #45a049; /* Subtle hover effect */
         }
-        @media (max-width: 600px) {
-            form {
-                width: 90%;
-            }
+        input[type="text"]::placeholder {
+            color: #ccc;
         }
-</style>
+        .form-container form:nth-child(2) {
+            margin-top: 30px; /* Add spacing between the forms */
+        }
+        .form-container p {
+            text-align: center;
+            color: #fff;
+        }
+        .form-container a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
-<h1>Add Expense.</h1>
-<form action="login" method="post">
-Description : <input type="text" name=description>
-<br><br>
-Amount : <input type="number" name=amount>
-<br><br>
-Date :<input type="date" name="date" value="2024-10-01" />
-<br><br>
-<button type="submit">Add Expense</button>
-</form>
 
-<br>
+    <div class="form-container">
+      <h1>Add Expense</h1>
+        <form action="addexpense" method="post">
+        
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" required>
+            
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" id="amount" required>
 
-<form action="fetch">
-<button type="submit">View all records.</button>
-</form>
-<br><br>
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" value="2024-10-01" required>
 
+            <button type="submit">Add Expense</button>
+        </form>
 
-<form action="/search">
-<input type="text" name=description  placeholder="Enter your description">
-<br>
-<button type="submit">Search</button>
-</form>
+        <form action="fetch">
+            <button type="submit">View all records</button>
+        </form>
+
+        <form action="/search">
+            <input type="text" name="description" placeholder="Enter your description" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
 </body>
 </html>

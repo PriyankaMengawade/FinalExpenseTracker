@@ -1,11 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-    /* Global Styles */
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link to the CSS file -->
+</head>
+<style>
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +17,7 @@
 /* Body Styles */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('background.jpg'); /* Replace with your background image */
+    background-image: url('background.jpg'); /* Add your background image file here */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,42 +25,35 @@ body {
     padding: 20px;
 }
 
-/* Container for Form */
-.container {
+/* Registration Form Container */
+.form-container {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     padding: 40px;
     margin: 50px auto;
     border-radius: 10px;
     width: 80%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
 }
 
-.container h1 {
+.form-container h1 {
     font-size: 36px;
     color: #f1c40f;
     margin-bottom: 20px;
 }
 
-.container h4 {
-    color: #ff6347; /* Error message color */
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Form Styling */
-form {
-    margin: 0;
-}
-
-form label {
+/* Form Labels and Inputs */
+label {
     display: block;
     font-size: 18px;
     margin: 15px 0 5px;
     text-align: left;
 }
 
-form input {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -69,7 +64,7 @@ form input {
     color: #333;
 }
 
-form button {
+input[type="submit"] {
     background-color: #f1c40f;
     color: #fff;
     border: none;
@@ -80,47 +75,60 @@ form button {
     width: 100%;
 }
 
-form button:hover {
+input[type="submit"]:hover {
     background-color: #e67e22;
 }
 
-/* Link Styling */
-a {
+/* Login Link */
+p {
+    color: #fff;
+    font-size: 16px;
+}
+
+p a {
     color: #f1c40f;
     text-decoration: none;
 }
 
-a:hover {
+p a:hover {
     color: #fff;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
+    .form-container {
         width: 90%;
     }
 }
-    
-    </style>
-</head>
-<body>
 
-<h1>Login</h1>
- <div class="container">
-        <h1>Login Here</h1>
-        <d:if test="${not empty errorMsg}">
-            <h4>${errorMsg}</h4>
-        </d:if>
-        <form action="processLogin" method="post">
+</style>
+<body>
+   
+    <div class="form-container">
+        <h1>Create an Account</h1>
+        <form action="registerpage" method="post">
+        <h1>REGISTRATION</h1>
+            <label for="username">Username:</label>
+            <input type="text" id="name" name="name" required>
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            
+            
+            
+            <label for="phone">Phone Number:</label>
+           <input type="tel" id="phonenumber" name="phonenumber" required>
+            
+            
+            <input type="submit" value="Register">
         </form>
-        <br><br>
-        If not registered....<a href="registerpage"><b>Click Here</b></a>
+        <br>
+        <p>Already have an account? <a href="loginpage">Login here</a></p>
     </div>
 
+    
 </body>
 </html>

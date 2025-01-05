@@ -8,6 +8,7 @@ import com.project.model.Expense;
 public interface ExpenseRepo extends JpaRepository<Expense, Integer>
 {
 
+	Expense findByEmail(String email);
 	Expense deleteById(int  id);
 
 
